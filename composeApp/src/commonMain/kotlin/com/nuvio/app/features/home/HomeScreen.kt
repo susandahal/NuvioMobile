@@ -99,6 +99,7 @@ fun HomeScreen(
     animateCollectionGifs: Boolean = true,
     scrollToTopRequests: Flow<Unit> = emptyFlow(),
     onCatalogClick: ((HomeCatalogSection) -> Unit)? = null,
+    onEmptyAddonClick:(()->Unit)?=null,
     onPosterClick: ((MetaPreview) -> Unit)? = null,
     onPosterLongClick: ((MetaPreview) -> Unit)? = null,
     onContinueWatchingClick: ((ContinueWatchingItem) -> Unit)? = null,
@@ -796,6 +797,7 @@ fun HomeScreen(
                             modifier = Modifier.padding(horizontal = 16.dp),
                             title = stringResource(Res.string.compose_search_empty_no_active_addons_title),
                             message = stringResource(Res.string.home_empty_no_active_addons_message),
+                            onCardClick = onEmptyAddonClick
                         )
                     }
                 }

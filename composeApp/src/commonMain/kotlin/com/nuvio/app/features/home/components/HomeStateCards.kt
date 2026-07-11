@@ -17,8 +17,12 @@ fun HomeEmptyStateCard(
     modifier: Modifier = Modifier,
     actionLabel: String? = null,
     onActionClick: (() -> Unit)? = null,
+    onCardClick: (() -> Unit)? = null
 ) {
-    NuvioSurfaceCard(modifier = modifier) {
+    NuvioSurfaceCard(
+        modifier = modifier,
+        onSurfaceClick = {onCardClick?.invoke()}
+    ) {
         Text(
             text = title,
             style = MaterialTheme.typography.titleLarge,

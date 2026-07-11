@@ -1896,6 +1896,9 @@ private fun MainAppContent(
                                         settingsRootActionRequests = settingsRootActionRequests,
                                         animateHomeCollectionGifs = tabsRouteActive,
                                         onCatalogClick = onCatalogClick,
+                                        onEmptyAddonClick = {
+                                            navController.navigate(AddonsSettingsRoute())
+                                        },
                                         onPosterClick = { meta ->
                                             navController.navigate(DetailRoute(type = meta.type, id = meta.id, title = meta.name))
                                         },
@@ -3517,6 +3520,7 @@ private fun AppTabHost(
     settingsRootActionRequests: Flow<Unit>,
     animateHomeCollectionGifs: Boolean = true,
     onCatalogClick: ((HomeCatalogSection) -> Unit)? = null,
+    onEmptyAddonClick:(()->Unit)?=null,
     onPosterClick: ((MetaPreview) -> Unit)? = null,
     onPosterLongClick: ((MetaPreview) -> Unit)? = null,
     onLibraryPosterClick: ((LibraryItem) -> Unit)? = null,
@@ -3555,6 +3559,7 @@ private fun AppTabHost(
                         animateCollectionGifs = animateHomeCollectionGifs,
                         scrollToTopRequests = homeScrollToTopRequests,
                         onCatalogClick = onCatalogClick,
+                        onEmptyAddonClick = onEmptyAddonClick,
                         onPosterClick = onPosterClick,
                         onPosterLongClick = onPosterLongClick,
                         onContinueWatchingClick = onContinueWatchingClick,

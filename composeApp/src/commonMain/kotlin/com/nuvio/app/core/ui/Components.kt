@@ -116,6 +116,7 @@ internal fun Modifier.nuvioConsumePointerEvents(): Modifier =
 fun NuvioSurfaceCard(
     modifier: Modifier = Modifier,
     tonalElevation: Int = 0,
+    onSurfaceClick:(()->Unit)?=null,
     content: @Composable ColumnScope.() -> Unit,
 ) {
     val tokens = MaterialTheme.nuvio
@@ -125,6 +126,7 @@ fun NuvioSurfaceCard(
         shape = tokens.shapes.card,
         tonalElevation = tonalElevation.dp,
         shadowElevation = tokens.elevation.flat,
+        onClick = {onSurfaceClick?.invoke()}
     ) {
         Column(
             modifier = Modifier.padding(tokens.spacing.cardPadding),
